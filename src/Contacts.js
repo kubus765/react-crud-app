@@ -3,6 +3,9 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Contacts = () => {
     // handlers for the modal popups
@@ -18,7 +21,7 @@ const Contacts = () => {
             email: "email",
             password: "password",
             category: "category",
-            phone: "999-999-999",
+            phone: "999999999",
             dateOfBirth: "20-03-1990"
         },
         {
@@ -28,7 +31,7 @@ const Contacts = () => {
             email: "email",
             password: "password",
             category: "category",
-            phone: "999-777-999",
+            phone: "999777999",
             dateOfBirth: "22-08-1995"
         }
     ]
@@ -37,7 +40,7 @@ const Contacts = () => {
     useEffect(() => {
         setData(conData);
     }, [])
-    //handlers for Edit and Delete of entries
+    //handlers for Edit, Delete and Update of entries
     const handleEdit = (id) =>{
         alert(id);
         handleShow();
@@ -47,8 +50,24 @@ const Contacts = () => {
             alert(id);
         }
     }
+    const handleUpdate = ()=>{
+
+    }
     return (
         <Fragment>
+            <Container>
+      <Row>
+        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col>
+        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col>
+        <Col><button className="btn btn-primary">Submit</button></Col>
+      </Row>
+    </Container>
+    <br></br>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -93,9 +112,19 @@ const Contacts = () => {
             </Table>
             <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Modify contact</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>     
+        <Row>
+        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col>
+        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col>
+        <Col><button className="btn btn-primary">Submit</button></Col>
+      </Row></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
