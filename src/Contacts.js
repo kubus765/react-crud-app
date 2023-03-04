@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import Table from 'react-bootstrap/Table';
 // sample data 
 const Contacts = () => {
+
     const conData = [
         {
             id: 1,
@@ -14,7 +15,7 @@ const Contacts = () => {
             dateOfBirth: "20-03-1990"
         },
         {
-            id: 1,
+            id: 2,
             name: "name",
             surname: "surname",
             email: "email",
@@ -66,9 +67,8 @@ const Contacts = () => {
                                 )
                             })
                             :
-                            "Loading..."
+                            'Loading...'
                     }
-
                 </tbody>
             </Table>
         </Fragment>
