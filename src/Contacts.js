@@ -1,8 +1,15 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Table from 'react-bootstrap/Table';
-// sample data 
-const Contacts = () => {
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
+
+const Contacts = () => {
+    // handlers for the modal popups
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    // sample data for the table
     const conData = [
         {
             id: 1,
@@ -30,12 +37,15 @@ const Contacts = () => {
     useEffect(() => {
         setData(conData);
     }, [])
-
+    //handlers for Edit and Delete of entries
     const handleEdit = (id) =>{
         alert(id);
+        handleShow();
     }
     const handleDelete = (id) =>{
-        alert(id);
+        if(window.confirm("Are you sure you want to delete this contact?") == true){
+            alert(id);
+        }
     }
     // table acquired from react github edited to work for the data
     return (
@@ -82,6 +92,20 @@ const Contacts = () => {
                     }
                 </tbody>
             </Table>
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
         </Fragment>
     )
 }
