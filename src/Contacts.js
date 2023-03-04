@@ -116,14 +116,13 @@ const Contacts = () => {
         </Modal.Header>
         <Modal.Body>     
         <Row>
-        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col>
-        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col>
-        <Col><button className="btn btn-primary">Submit</button></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col></Row><Row>
+        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col></Row><Row>
+        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col></Row><Row>
+        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col></Row><Row>
+        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col></Row><Row>
+        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col></Row><Row>
+        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col></Row><Row>
       </Row></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
