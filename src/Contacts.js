@@ -13,7 +13,7 @@ const Contacts = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+    // add form 
     const[name, setName] = useState('')
     const[surname, setSurname] = useState('')
     const[email, setEmail] = useState('')
@@ -21,7 +21,8 @@ const Contacts = () => {
     const[category, setCategory] = useState('')
     const[phone, setPhone] = useState('')
     const[dateOfBirth, setDateOfBirth] = useState('')
-    
+    // edit form
+    const[editID, setEditId] = useState('')
     const[editName, setEditName] = useState('')
     const[editSurname, setEditSurname] = useState('')
     const[editEmail, setEditEmail] = useState('')
@@ -75,13 +76,26 @@ const Contacts = () => {
         <Fragment>
             <Container>
       <Row>
-        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col>
-        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col>
-        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Name" 
+        value={name} onChange={(e) => setName(e.target.value)}/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Surname"
+        value={surname} onChange={(e) => setSurname(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter e-mail" 
+        value={email} onChange={(e) => setEmail(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter password" 
+        value={password} onChange={(e) => setPassword(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter category"
+        value={category} onChange={(e) => setCategory(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter phone number"
+        value={phone} onChange={(e) => setPhone(e.target.value)}
+        /></Col>
+        <Col><input type="date" className="form-control" placeholder="Enter date of birth"
+        value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)}
+        /></Col>
         <Col><button className="btn btn-primary">Submit</button></Col>
       </Row>
     </Container>
@@ -134,14 +148,29 @@ const Contacts = () => {
         </Modal.Header>
         <Modal.Body>     
         <Row>
-        <Col><input type="text" className="form-control" placeholder="Enter Name"/></Col></Row><Row>
-        <Col><input type="text" className="form-control" placeholder="Enter Surname"/></Col></Row><Row>
-        <Col><input type="text" className="form-control" placeholder="Enter e-mail"/></Col></Row><Row>
-        <Col><input type="text" className="form-control" placeholder="Enter password"/></Col></Row><Row>
-        <Col><input type="text" className="form-control" placeholder="Enter category"/></Col></Row><Row>
-        <Col><input type="text" className="form-control" placeholder="Enter phone number"/></Col></Row><Row>
-        <Col><input type="date" className="form-control" placeholder="Enter date of birth"/></Col></Row><Row>
-      </Row></Modal.Body>
+        <Col><input type="text" className="form-control" placeholder="Enter Name" 
+        value={editName} onChange={(e) => setEditName(e.target.value)}/></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter Surname"
+        value={editSurname} onChange={(e) => setEditSurname(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter e-mail" 
+        value={editEmail} onChange={(e) => setEditEmail(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter password" 
+        value={editPassword} onChange={(e) => setEditPassword(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter category"
+        value={editCategory} onChange={(e) => setEditCategory(e.target.value)}
+        /></Col>
+        <Col><input type="text" className="form-control" placeholder="Enter phone number"
+        value={editPhone} onChange={(e) => setEditPhone(e.target.value)}
+        /></Col>
+        <Col><input type="date" className="form-control" placeholder="Enter date of birth"
+        value={editDateOfBirth} onChange={(e) => setEditDateOfBirth(e.target.value)}
+        /></Col>
+        <Col><button className="btn btn-primary">Submit</button></Col>
+      </Row>
+      </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
