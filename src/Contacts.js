@@ -29,8 +29,14 @@ const Contacts = () => {
 
     useEffect(() => {
         setData(conData);
-        
     }, [])
+
+    const handleEdit = (id) =>{
+        alert(id);
+    }
+    const handleDelete = (id) =>{
+        alert(id);
+    }
     // table acquired from react github edited to work for the data
     return (
         <Fragment>
@@ -46,6 +52,7 @@ const Contacts = () => {
                         <th>Category</th>
                         <th>Phone</th>
                         <th>Date of birth</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +70,10 @@ const Contacts = () => {
                                         <td>{item.category}</td>
                                         <td>{item.phone}</td>
                                         <td>{item.dateOfBirth}</td>
+                                        <td colSpan = {2}>
+                                            <button className="btn btn-primary" onClick={()=> handleEdit(item.id)} >Edit</button> &nbsp;
+                                            <button className="btn btn-primary" onClick={()=> handleDelete(item.id)} >Delete</button>
+                                        </td>
                                     </tr>
                                 )
                             })
