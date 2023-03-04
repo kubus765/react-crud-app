@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Contacts = () => {
     // handlers for the modal popups
@@ -47,7 +47,6 @@ const Contacts = () => {
             alert(id);
         }
     }
-    // table acquired from react github edited to work for the data
     return (
         <Fragment>
             <Table striped bordered hover>
