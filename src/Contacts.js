@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Table from 'react-bootstrap/Table';
-
+// sample data 
 const Contacts = () => {
     const conData = [
         {
@@ -30,6 +30,7 @@ const Contacts = () => {
         setData(conData);
         
     }, [])
+    // table acquired from react github edited to work for the data
     return (
         <Fragment>
             <Table striped bordered hover>

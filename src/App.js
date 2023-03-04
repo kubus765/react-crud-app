@@ -1,6 +1,7 @@
 import './App.css';
 import Contacts from './Contacts';
 
+// import contacts.js 
 function App() {
   return (
     <div className="App">
@@ -8,5 +9,5 @@ function App() {
     </div>
   );
 }
-asdasd
+
 export default App;
