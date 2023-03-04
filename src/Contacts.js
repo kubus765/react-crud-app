@@ -10,8 +10,26 @@ import Col from 'react-bootstrap/Col';
 const Contacts = () => {
     // handlers for the modal popups
     const [show, setShow] = useState(false);
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+    const[name, setName] = useState('')
+    const[surname, setSurname] = useState('')
+    const[email, setEmail] = useState('')
+    const[password, setPassword] = useState('')
+    const[category, setCategory] = useState('')
+    const[phone, setPhone] = useState('')
+    const[dateOfBirth, setDateOfBirth] = useState('')
+    
+    const[editName, setEditName] = useState('')
+    const[editSurname, setEditSurname] = useState('')
+    const[editEmail, setEditEmail] = useState('')
+    const[editPassword, setEditPassword] = useState('')
+    const[editCategory, setEditCategory] = useState('')
+    const[editPhone, setEditPhone] = useState('')
+    const[editDateOfBirth, setEditDateOfBirth] = useState('')
+
     // sample data for the table
     const conData = [
         {
