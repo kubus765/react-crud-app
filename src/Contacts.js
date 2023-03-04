@@ -77,7 +77,8 @@ const Contacts = () => {
             <Container>
       <Row>
         <Col><input type="text" className="form-control" placeholder="Enter Name" 
-        value={name} onChange={(e) => setName(e.target.value)}/></Col>
+        value={name} onChange={(e) => setName(e.target.value)}/></Col></Row>
+        <Row>
         <Col><input type="text" className="form-control" placeholder="Enter Surname"
         value={surname} onChange={(e) => setSurname(e.target.value)}
         /></Col>
@@ -150,24 +151,32 @@ const Contacts = () => {
         <Row>
         <Col><input type="text" className="form-control" placeholder="Enter Name" 
         value={editName} onChange={(e) => setEditName(e.target.value)}/></Col>
+        </Row>
+        <Row>
         <Col><input type="text" className="form-control" placeholder="Enter Surname"
         value={editSurname} onChange={(e) => setEditSurname(e.target.value)}
         /></Col>
+        </Row>
         <Col><input type="text" className="form-control" placeholder="Enter e-mail" 
         value={editEmail} onChange={(e) => setEditEmail(e.target.value)}
         /></Col>
+        <Row>
         <Col><input type="text" className="form-control" placeholder="Enter password" 
         value={editPassword} onChange={(e) => setEditPassword(e.target.value)}
         /></Col>
+        </Row>
         <Col><input type="text" className="form-control" placeholder="Enter category"
         value={editCategory} onChange={(e) => setEditCategory(e.target.value)}
         /></Col>
+        <Row>
         <Col><input type="text" className="form-control" placeholder="Enter phone number"
         value={editPhone} onChange={(e) => setEditPhone(e.target.value)}
         /></Col>
+        </Row>
+        <Row>
         <Col><input type="date" className="form-control" placeholder="Enter date of birth"
         value={editDateOfBirth} onChange={(e) => setEditDateOfBirth(e.target.value)}
-        /></Col>
+        /></Col></Row><Row>
         <Col><button className="btn btn-primary">Submit</button></Col>
       </Row>
       </Modal.Body>
