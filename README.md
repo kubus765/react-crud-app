@@ -1,4 +1,5 @@
-simple react crud app
+Simple React CRUD app.
+I'm also using Bootstrap and Axios packages.
 
 (in progress)
 
