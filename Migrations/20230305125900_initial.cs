@@ -23,7 +23,7 @@ namespace web_app_crud_contacts.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateOfBirth = table.Column<DateOnly>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

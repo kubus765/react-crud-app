@@ -12,5 +12,6 @@ namespace web_app_crud_contacts.Models
         public string? Phone { get; set; }
         public string? Category { get; set; }
         public DateTime DateOfBirth { get; set; }
+
     }
 } 

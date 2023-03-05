@@ -89,12 +89,10 @@ C:\Users\Kuba\Desktop\CRUD_app\my-app\obj\Debug\net6.0\web-app-crud-contacts.pdb
 C:\Users\Kuba\Desktop\CRUD_app\my-app\obj\Debug\net6.0\web-app-crud-contacts.genruntimeconfig.cache
 C:\Users\Kuba\Desktop\CRUD_app\my-app\obj\Debug\net6.0\ref\web-app-crud-contacts.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\obj\Debug\net6.0\web-app-crud-contacts.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Swashbuckle.Swagger.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Kuba\Desktop\CRUD_app\my-app\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

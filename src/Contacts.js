@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contacts = () => {
     // handlers for the modal popups
@@ -54,27 +57,99 @@ const Contacts = () => {
             dateOfBirth: "22-08-1995"
         }
     ]
+    
     const [data, setData] = useState([]);
 
+    // This code uses useEffect hook to call getData function on component mount
+    // which fetches data from an API using axios and sets the response data to the state variable. 
+    // Additionally, it includes handleEdit function which is called on edit button click to show the edit modal.
     useEffect(() => {
-        setData(conData);
+        getData();
     }, [])
-    //handlers for Edit, Delete and Update of entries
+    // axios getData from url 
+    const getData = () =>{
+        axios.get('https://localhost:7275/api/Contact')
+            .then((result) =>{
+            setData(result.data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
     const handleEdit = (id) =>{
-        alert(id);
         handleShow();
     }
+
+    // This code sends a DELETE request to remove a contact with the given ID
+    // displays a confirmation dialog before deleting
+    // updates the contact list and displays a toast message after a successful response.
     const handleDelete = (id) =>{
         if(window.confirm("Are you sure you want to delete this contact?") == true){
-            alert(id);
+            axios.delete(`https://localhost:7275/api/Contact/${id}`)
+            .then((result)=>{
+                if(result.status === 200)
+                {
+                    toast.success("Contact has been removed.");
+                    getData();
+                }
+            })
+            .catch((error)=>
+        {
+            toast.error(error);
+        })
         }
     }
+    // Update entry handler
     const handleUpdate = ()=>{
 
+    }
+    // This code sends a POST request to add a new contact
+    // updates the contact list and clears input fields 
+    // after a successful response displays a toast message.
+    const handleSave=() =>
+    {
+        const url = 'https://localhost:7275/api/Contact';
+        const data = {
+            "name": name,
+            "surname": surname,
+            "email": email,
+            "password": password,
+            "phone": phone,
+            "category": category,
+            "dateOfBirth": dateOfBirth
+        }
+        axios.post(url, data)
+        .then((result) =>{
+            getData();
+            clear();
+            toast.success("Contact has been added.");
+        }).catch((error)=>
+        {
+            toast.error(error);
+        })
+    }
+    // This code resets a form's input fields by setting several state 
+    // variables to empty strings or null values.
+    const clear = () => {
+        setName('');
+        setSurname('');
+        setEmail('');
+        setPassword('');
+        setPhone('');
+        setCategory('');
+        setDateOfBirth('');
+        setEditName('');
+        setEditSurname('');
+        setEditEmail('');
+        setEditPassword('');
+        setEditPhone('');
+        setEditCategory('');
+        setEditDateOfBirth('');
     }
 
     return (
         <Fragment>
+            <ToastContainer/>
             <Container>
       <Row>
         <Col><input type="text" className="form-control" placeholder="Enter Name" 
@@ -101,7 +176,7 @@ const Contacts = () => {
         value={phone} onChange={(e) => setPhone(e.target.value)}/></Col>
         <Col><input type="date" className="form-control" placeholder="Enter date of birth"
         value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)}/></Col>
-        <Col><button className="btn btn-primary">Submit</button></Col>
+        <Col><button className="btn btn-primary" onClick={()=>handleSave()}>Submit</button></Col>
       </Row>
     </Container>
     <br></br>
@@ -186,7 +261,7 @@ const Contacts = () => {
         value={editDateOfBirth} onChange={(e) => setEditDateOfBirth(e.target.value)}
         /></Col></Row>&nbsp;
         <Row>
-        <Col><button className="btn btn-primary">Submit</button></Col>
+        <Col><button className="btn btn-primary" onClick={()=>handleSave()}>Submit</button></Col>
       </Row>
       </Modal.Body>
         <Modal.Footer>
