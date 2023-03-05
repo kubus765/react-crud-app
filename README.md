@@ -13,13 +13,13 @@ The project was developed using Visual Studio 2022 and Visual Code.
 
 Additional packages used in the project:
 
-react-toastify: A package that provides an easy way to display toast notifications in React. It's used in the project to show success and error messages when a user adds, updates, or deletes a contact.
+- react-toastify: A package that provides an easy way to display toast notifications in React. It's used in the project to show success and error messages when a user adds, updates, or deletes a contact.
 
-axios: A promise-based HTTP client for the browser and Node.js. It's used in the project to make HTTP requests to the server-side API.
+- axios: A promise-based HTTP client for the browser and Node.js. It's used in the project to make HTTP requests to the server-side API.
 
-Bootstrap: A popular front-end framework for building responsive websites. It's used in the project for styling and layout purposes.
+- Bootstrap: A popular front-end framework for building responsive websites. It's used in the project for styling and layout purposes.
 
-Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
+- Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
 
 Most important files are: 
 - Contacts.js
