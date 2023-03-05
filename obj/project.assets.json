@@ -4200,11 +4200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kuba\\source\\repos\\web-app-crud-contacts\\web-app-crud-contacts\\web-app-crud-contacts.csproj",
+      "projectUniqueName": "C:\\Users\\Kuba\\Desktop\\CRUD_app\\my-app\\web-app-crud-contacts.csproj",
       "projectName": "web-app-crud-contacts",
-      "projectPath": "C:\\Users\\Kuba\\source\\repos\\web-app-crud-contacts\\web-app-crud-contacts\\web-app-crud-contacts.csproj",
+      "projectPath": "C:\\Users\\Kuba\\Desktop\\CRUD_app\\my-app\\web-app-crud-contacts.csproj",
       "packagesPath": "C:\\Users\\Kuba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kuba\\source\\repos\\web-app-crud-contacts\\web-app-crud-contacts\\obj\\",
+      "outputPath": "C:\\Users\\Kuba\\Desktop\\CRUD_app\\my-app\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

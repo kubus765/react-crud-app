@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "isdUjharkD7C0Li4PFc7MRALpD7UQDQYMy2Y1e8WPHZna1LDdncNNQnx9bs+stb6bB/XjdooiIujRh7jpJEh/g==",
+  "dgSpecHash": "+YGv6kM3t/2SK/AksaWDr7rNF23UHV+iPnZl1GPnar3X/Xjedmjczl2qghiXqstbqVmGSCwy5/JMM+3OEh8JQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kuba\\source\\repos\\web-app-crud-contacts\\web-app-crud-contacts\\web-app-crud-contacts.csproj",
+  "projectFilePath": "C:\\Users\\Kuba\\Desktop\\CRUD_app\\my-app\\web-app-crud-contacts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kuba\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Kuba\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
