@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Data;
 
-namespace crud-app.Models
+namespace web_app_crud_contacts.Models
 {
-    public class ContactContext : 
+    public class ContactContext : DbContext
     {
-        
+        public ContactContext(DbContextOptions<ContactContext>options) : base(options) 
+        { 
+
+        }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

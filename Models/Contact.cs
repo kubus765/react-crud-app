@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace crud-app.Models
+namespace web_app_crud_contacts.Models
 {
     public class Contact
     {
