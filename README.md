@@ -23,7 +23,7 @@ Additional packages used in the project:
 
 Current functionalities:
 
-- Modal popups to add and edit contacts.
+- Modal popup to edit contacts.
 - Drop-down menu for selecting contact category during add/edit.
 - Confirmation popup before deleting a contact.
 - View the list of contacts that are saved on a SQL Database
