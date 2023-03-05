@@ -11,7 +11,7 @@ Overall, this code provides a working example of how to implement CRUD operation
 
 The project was developed using Visual Studio 2022 and Visual Code. 
 
-Additional functionalities:
+Current functionalities:
 
 - Modal popups to add and edit contacts.
 - Drop-down menu for selecting contact category during add/edit.
