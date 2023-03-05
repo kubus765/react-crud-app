@@ -41,6 +41,7 @@ Still to do:
 - Add basic checks of for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol) and email input
 - Fix the date format (currently also time is displayed)
 - Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
+- Add an option to input a subcategory data if selected category type is "Other"
 _________________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
