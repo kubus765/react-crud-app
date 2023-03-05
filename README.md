@@ -1,4 +1,4 @@
-# Hello, this is my Simple React CRUD App
+# Hello, this is my Basic React CRUD App
 This repository contains code that implements CRUD (Create, Read, Update, Delete) operations for a contact management system using React.js, ASP.NET Core, and SQL Server. 
 
 The code includes functionalities for adding a new contact, updating existing contact information, and deleting contacts. The front-end is implemented using React.js and the back-end using ASP.NET Core and SQL Server. 
