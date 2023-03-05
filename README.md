@@ -38,7 +38,8 @@ Most crucial files are:
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
-- Add basic checks of for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol) and email input
+- Add basic checks for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol)
+- Add basic checks for email syntax
 - Fix the date format (currently also time is displayed)
 - Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
 - Add an option to input a subcategory data if selected category type is "Other"
