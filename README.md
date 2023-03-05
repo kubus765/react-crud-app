@@ -1,5 +1,5 @@
 Simple React CRUD app.
-I'm also using Bootstrap and Axios packages.
+I'm also using Bootstrap, EntityFramework, Cors and Axios packages.
 
 (in progress)
 
