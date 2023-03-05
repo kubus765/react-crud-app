@@ -11,6 +11,12 @@ Overall, this code provides a working example of how to implement CRUD operation
 
 The project was developed using Visual Studio 2022 and Visual Code. 
 
+Current functionalities:
+- View the list of contacts that are saved on a SQL Database
+- Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
+- Delete an existing contact
+- Edit an existing contact
+
 Additional packages used in the project:
 
 - react-toastify: A package that provides an easy way to display toast notifications in React. It's used in the project to show success and error messages when a user adds, updates, or deletes a contact.
@@ -34,6 +40,7 @@ Still to do:
 - Add basic authentication (only a logged in user can alter the database)
 - Add basic checks of for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol) and email input
 - Fix the date format (currently also time is displayed)
+- Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
 _________________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
