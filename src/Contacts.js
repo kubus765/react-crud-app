@@ -187,6 +187,7 @@ const Contacts = () => {
                 including name, surname, email, password, category, phone number, and date of birth. 
                 The "Submit" button triggers the handleSave function when clicked.
             */}
+            &nbsp;
             <Container>
                 <Row>
                     <Col><input type="text" className="form-control" placeholder="Enter Name"
