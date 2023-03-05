@@ -201,7 +201,7 @@ const Contacts = () => {
 
                     <Col>
 
-                        <select className="form-control" id="cat-select" onchange="yesnoCheck(this);" value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <select className="form-control" id="cat-select" value={category} onChange={(e) => setCategory(e.target.value)}>
                             <option value="">--Choose a category--</option>
                             <option value="business">Business</option>
                             <option value="personal">Personal</option>
