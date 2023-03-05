@@ -1,5 +1,8 @@
 ﻿using System;
 
+//This C# code defines a Contact class that contains properties
+//for various contact details such as name, surname, email, password, phone number, category, and date of birth.
+//The properties have getters and setters that allow access to their values.
 namespace web_app_crud_contacts.Models
 {
     public class Contact

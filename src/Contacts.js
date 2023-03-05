@@ -16,7 +16,7 @@ const Contacts = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    // add form 
+    // submit form 
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
     const [email, setEmail] = useState('')
@@ -24,7 +24,7 @@ const Contacts = () => {
     const [category, setCategory] = useState('')
     const [phone, setPhone] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
-    // edit form
+    // edit form (modal)
     const [editID, setEditId] = useState('')
     const [editName, setEditName] = useState('')
     const [editSurname, setEditSurname] = useState('')
@@ -57,16 +57,14 @@ const Contacts = () => {
             dateOfBirth: "22-08-1995"
         }
     ]
-
+    // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
+    // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
 
-    // This code uses useEffect hook to call getData function on component mount
-    // which fetches data from an API using axios and sets the response data to the state variable. 
-    // Additionally, it includes handleEdit function which is called on edit button click to show the edit modal.
     useEffect(() => {
         getData();
     }, [])
-    // axios getData from url 
+
     const getData = () => {
         axios.get('https://localhost:7275/api/Contact')
             .then((result) => {
@@ -76,6 +74,11 @@ const Contacts = () => {
                 console.log(error)
             })
     }
+
+    // This code handles the editing of a contact 
+    // by retrieving its information from the API endpoint and updating the state variables 
+    // used to populate the input fields in the modal dialog.
+
     const handleEdit = (id) => {
         handleShow();
         axios.get(`https://localhost:7275/api/Contact/${id}`)
@@ -111,7 +114,8 @@ const Contacts = () => {
                 })
         }
     }
-    // Update entry handler
+    // This code sends a PUT request to an API endpoint to update a contact's information, using the axios library. 
+    // It displays a success message using the toast library if the request succeeds, or an error message if it fails.
     const handleUpdate = () => {
         const url = `https://localhost:7275/api/Contact/${editID}`;
         const data = {
@@ -178,6 +182,11 @@ const Contacts = () => {
     return (
         <Fragment>
             <ToastContainer />
+            {/* 
+                This code is a form with several input fields for the user to enter contact details, 
+                including name, surname, email, password, category, phone number, and date of birth. 
+                The "Submit" button triggers the handleSave function when clicked.
+            */}
             <Container>
                 <Row>
                     <Col><input type="text" className="form-control" placeholder="Enter Name"
@@ -208,6 +217,12 @@ const Contacts = () => {
                 </Row>
             </Container>
             <br></br>
+            {/* 
+                This code creates a table that displays contact information. 
+                The table has columns for ID, name, surname, email, password, category, phone, date of birth, and actions. 
+                It uses data from the data state to dynamically render rows for each contact. 
+                The rows also have buttons for editing and deleting contacts, which call the respective functions handleEdit and handleDelete.
+            */}
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -250,6 +265,13 @@ const Contacts = () => {
                     }
                 </tbody>
             </Table>
+            {/* 
+                This is a modal component that displays a form for editing contact information. 
+                It contains input fields for name, surname, email, password, category, phone number, and date of birth. 
+                The modal includes "Close" and "Save Changes" buttons. When the "Save Changes" button is clicked, 
+                the handleUpdate function is called to update the contact information, and the modal is closed.
+            */}
+            
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modify contact</Modal.Title>

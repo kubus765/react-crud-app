@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-
+// This file is auto-generated
 namespace web_app_crud_contacts.Migrations
 {
     /// <inheritdoc />
