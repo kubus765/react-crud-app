@@ -13,6 +13,15 @@ Bootstrap: A popular front-end framework for building responsive websites. It's 
 
 Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
 
+Most important files are: 
+- Contacts.js
+- Program.cs
+- Contact.cs
+- ContactContext.cs
+- ContactController.cs
+
+(You can find some useful comments in them)
+
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
 - Add basic checks of for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol) and email input
