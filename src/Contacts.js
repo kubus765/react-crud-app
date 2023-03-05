@@ -78,6 +78,20 @@ const Contacts = () => {
     }
     const handleEdit = (id) => {
         handleShow();
+        axios.get(`https://localhost:7275/api/Contact/${id}`)
+            .then((result) => {
+                setEditId(result.data.id);
+                setEditName(result.data.name);
+                setEditSurname(result.data.surname);
+                setEditEmail(result.data.email);
+                setEditPassword(result.data.password);
+                setEditCategory(result.data.category);
+                setEditPhone(result.data.phone);
+                setEditDateOfBirth(result.data.dateOfBirth);
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     // This code sends a DELETE request to remove a contact with the given ID
@@ -99,7 +113,25 @@ const Contacts = () => {
     }
     // Update entry handler
     const handleUpdate = () => {
-
+        const url = `https://localhost:7275/api/Contact/${editID}`;
+        const data = {
+            "id": editID,
+            "name": editName,
+            "surname": editSurname,
+            "email": editEmail,
+            "password": editPassword,
+            "phone": editPhone,
+            "category": editCategory,
+            "dateOfBirth": editDateOfBirth
+        }
+        axios.put(url, data)
+            .then((result) => {
+                getData();
+                clear();
+                toast.success("Contact has been updated.");
+            }).catch((error) => {
+                toast.error(error);
+            })
     }
     // This code sends a POST request to add a new contact
     // updates the contact list and clears input fields 
@@ -256,15 +288,15 @@ const Contacts = () => {
                         <Col><input type="date" className="form-control" placeholder="Enter date of birth"
                             value={editDateOfBirth} onChange={(e) => setEditDateOfBirth(e.target.value)}
                         /></Col></Row>&nbsp;
-                    <Row>
-                        <Col><button className="btn btn-primary" onClick={() => handleSave()}>Submit</button></Col>
-                    </Row>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={() => {
+                        handleUpdate();
+                        handleClose();
+                    }}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
