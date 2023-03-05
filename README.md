@@ -34,7 +34,7 @@ Most crucial files are:
 - ContactContext.cs
 - ContactController.cs
 
-(You can find some useful comments in them)
+(You can find some useful comments in them about how the application works front and back end.)
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
