@@ -11,7 +11,11 @@ Overall, this code provides a working example of how to implement CRUD operation
 
 The project was developed using Visual Studio 2022 and Visual Code. 
 
-Current functionalities:
+Additional functionalities:
+
+- Modal popups to add and edit contacts.
+- Drop-down menu for selecting contact category during add/edit.
+- Confirmation popup before deleting a contact.
 - View the list of contacts that are saved on a SQL Database
 - Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
 - Delete an existing contact
@@ -38,11 +42,15 @@ Most crucial files are:
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
-- Add basic checks for password (at least 8 characters, at least 1 upper case letter, at least 1 special symbol)
-- Add basic checks for email syntax
+- Validation for form inputs to ensure correct data format (e.g. valid email address).
 - Fix the date format (currently also time is displayed)
 - Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
 - Add an option to input a subcategory data if selected category type is "Other"
+- Pagination to limit the number of contacts displayed on a single page.
+- Option to export contacts to a CSV or Excel file.
+- Option to import contacts from a CSV or Excel file.
+- Sorting functionality to sort contacts based on different criteria (e.g. name, date added).
+- Search functionality to search for contacts based on name, email, phone number, or category.
 _________________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
