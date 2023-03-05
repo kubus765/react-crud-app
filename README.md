@@ -11,16 +11,6 @@ Overall, this code provides a working example of how to implement CRUD operation
 
 The project was developed using Visual Studio 2022 and Visual Code. 
 
-Current functionalities:
-
-- Modal popups to add and edit contacts.
-- Drop-down menu for selecting contact category during add/edit.
-- Confirmation popup before deleting a contact.
-- View the list of contacts that are saved on a SQL Database
-- Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
-- Delete an existing contact
-- Edit an existing contact
-
 Additional packages used in the project:
 
 - react-toastify: A package that provides an easy way to display toast notifications in React. It's used in the project to show success and error messages when a user adds, updates, or deletes a contact.
@@ -31,6 +21,16 @@ Additional packages used in the project:
 
 - Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
 
+Current functionalities:
+
+- Modal popups to add and edit contacts.
+- Drop-down menu for selecting contact category during add/edit.
+- Confirmation popup before deleting a contact.
+- View the list of contacts that are saved on a SQL Database
+- Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
+- Delete an existing contact
+- Edit an existing contact
+- 
 Most crucial files are: 
 - Contacts.js
 - Program.cs
