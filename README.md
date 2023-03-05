@@ -30,7 +30,7 @@ Current functionalities:
 - Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
 - Delete an existing contact
 - Edit an existing contact
-- 
+
 Most crucial files are: 
 - Contacts.js
 - Program.cs
