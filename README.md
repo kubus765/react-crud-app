@@ -1,7 +1,14 @@
-Simple React CRUD app.
-I'm also using Bootstrap, EntityFramework, Cors and Axios packages.
+This repository contains code that implements CRUD (Create, Read, Update, Delete) operations for a contact management system using React.js, ASP.NET Core, and SQL Server. The code includes functionalities for adding a new contact, updating existing contact information, and deleting contacts. The front-end is implemented using React.js and the back-end using ASP.NET Core and SQL Server. The code uses axios to make HTTP requests to the server for database CRUD operations. The UI is built using Bootstrap and react-toastify is used for displaying toast notifications. The code also includes input validation using regular expressions. Overall, this code provides a working example of how to implement CRUD operations for a contact management system using React.js, ASP.NET Core, and SQL Server.
 
-(in progress)
+Additional packages used in the project:
+
+react-toastify: A package that provides an easy way to display toast notifications in React. It's used in the project to show success and error messages when a user adds, updates, or deletes a contact.
+
+axios: A promise-based HTTP client for the browser and Node.js. It's used in the project to make HTTP requests to the server-side API.
+
+Bootstrap: A popular front-end framework for building responsive websites. It's used in the project for styling and layout purposes.
+
+Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
 
 
 _________________________________________________________________________________________________________________________________
