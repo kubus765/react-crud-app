@@ -21,7 +21,7 @@ Additional packages used in the project:
 
 - Entity Framework: A Microsoft framework for working with relational databases. It's used in the project to handle database operations, such as querying and updating data in the SQL Server database.
 
-Most important files are: 
+Most crucial files are: 
 - Contacts.js
 - Program.cs
 - Contact.cs
