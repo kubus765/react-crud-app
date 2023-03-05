@@ -97,7 +97,7 @@ const Contacts = () => {
             })
     }
 
-    // This code sends a DELETE request to remove a contact with the given ID
+    // This code sends a DELETE request to remove a contact with the given ID,
     // displays a confirmation dialog before deleting
     // updates the contact list and displays a toast message after a successful response.
     const handleDelete = (id) => {
