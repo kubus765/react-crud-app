@@ -29,6 +29,7 @@ Current functionalities:
 - View the list of contacts that are saved on a SQL Database
 - Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
 - Delete an existing contact
+- Full form data validation 
 - Edit an existing contact
 
 Most crucial files are: 
