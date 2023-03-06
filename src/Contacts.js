@@ -255,7 +255,7 @@ const Contacts = () => {
                                         <td>{item.email}</td>
                                         <td>{item.password}</td>
                                         <td>{item.category}</td>
-                                        <td>{item.phone}</td>
+                                        <td>{item.phone.slice(0,3)}-{item.phone.slice(3,6)}-{item.phone.slice(6)}</td>
                                         <td>{item.dateOfBirth.split('T')[0]}</td>
                                         <td colSpan={2}>
                                             <button className="btn btn-primary" onClick={() => handleEdit(item.id)} >Edit</button> &nbsp;
