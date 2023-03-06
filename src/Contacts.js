@@ -71,6 +71,10 @@ const Contacts = () => {
         
         return passwordRegex.test(password);
       }
+    // regex for phone number validation
+      function validatePhoneNumber(phoneNumber) {
+        return /^\d{9}$/.test(phoneNumber);
+      }
     // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
     // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
@@ -156,8 +160,16 @@ const Contacts = () => {
             toast.error("Please input a valid name.");
             return;
         }
+        if (!/^[a-zA-Z]+$/.test(name)) {
+            toast.error("Name should contain only letters.");
+            return;
+        }
         if (!surname) {
             toast.error("Please input a valid surname.");
+            return;
+        }
+        if (!/^[a-zA-Z]+$/.test(surname)) {
+            toast.error("Surname should contain only letters.");
             return;
         }
         if (!email) {
@@ -180,8 +192,8 @@ const Contacts = () => {
             toast.error("Pick a category before submitting.");
             return;
         }
-        if (phone.length !== 9) {
-            toast.error("Phone number should have exactly 9 digits.");
+        if (!validatePhoneNumber(phone)) {
+            toast.error("Phone number should have exactly 9 symbols. Digits only.");
             return;
         }
         if (!dateOfBirth) {
