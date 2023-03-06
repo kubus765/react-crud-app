@@ -13,7 +13,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Contacts = () => {
-      console.log()
     // handlers for the modal popups
     const [show, setShow] = useState(false);
 
@@ -60,6 +59,18 @@ const Contacts = () => {
             dateOfBirth: "22-08-1995"
         }
     ]
+    // regex for email verification
+    const isValidEmail = (email) => {
+        const regex = /\S+@\S+\.\S+/;
+        return regex.test(email);
+      }
+    // regex for password verification
+    const validatePassword = (password) => {
+        // At least one uppercase letter, one lowercase letter, one number and one special character
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        
+        return passwordRegex.test(password);
+      }
     // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
     // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
@@ -140,6 +151,44 @@ const Contacts = () => {
                 toast.error(error);
             })
     }
+    const checkForm = () => {
+        if (!name) {
+            toast.error("Please input a valid name.");
+            return;
+        }
+        if (!surname) {
+            toast.error("Please input a valid surname.");
+            return;
+        }
+        if (!email) {
+            toast.error("Please input a valid email address.");
+            return;
+        }
+        if (!isValidEmail(email)) {
+            toast.error("Invalid email address.");
+            return;
+        }
+        if (!password) {
+            toast.error(`Please input a password before submitting.`);
+            return;
+        }
+        if (!validatePassword(password)) {
+            toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
+            return;
+        }
+        if (category === '--Choose a category--') {
+            toast.error("Pick a category before submitting.");
+            return;
+        }
+        if (phone.length !== 9) {
+            toast.error("Phone number should have exactly 9 digits.");
+            return;
+        }
+        if (!dateOfBirth) {
+            toast.error("Please select a date of birth.");
+            return;
+        }
+    }
     // This code sends a POST request to add a new contact
     // updates the contact list and clears input fields 
     // after a successful response displays a toast message.
@@ -154,6 +203,7 @@ const Contacts = () => {
             "category": category,
             "dateOfBirth": dateOfBirth
         }
+        checkForm();
         axios.post(url, data)
             .then((result) => {
                 getData();
