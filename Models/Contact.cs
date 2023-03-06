@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 //This C# code defines a Contact class that contains properties
 //for various contact details such as name, surname, email, password, phone number, category, and date of birth.
@@ -15,6 +16,5 @@ namespace web_app_crud_contacts.Models
         public string? Phone { get; set; }
         public string? Category { get; set; }
         public DateTime DateOfBirth { get; set; }
-
     }
 } 

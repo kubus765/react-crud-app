@@ -10,7 +10,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const Contacts = () => {
+      console.log()
     // handlers for the modal popups
     const [show, setShow] = useState(false);
 
@@ -253,7 +256,7 @@ const Contacts = () => {
                                         <td>{item.password}</td>
                                         <td>{item.category}</td>
                                         <td>{item.phone}</td>
-                                        <td>{item.dateOfBirth}</td>
+                                        <td>{item.dateOfBirth.split('T')[0]}</td>
                                         <td colSpan={2}>
                                             <button className="btn btn-primary" onClick={() => handleEdit(item.id)} >Edit</button> &nbsp;
                                             <button className="btn btn-primary" onClick={() => handleDelete(item.id)} >Delete</button>
