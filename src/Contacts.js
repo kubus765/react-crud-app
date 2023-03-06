@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 
 
@@ -16,6 +17,19 @@ const Contacts = () => {
     // handlers for the modal popups
     const [show, setShow] = useState(false);
 
+    const [isOtherCategory, setIsOtherCategory] = useState(false)
+
+    const __setCategory = (data) => {
+        if (data === 'other') {
+            setIsOtherCategory(true)
+        }
+        setCategory(data)
+    }
+
+    const resetCategory = () => {
+        setIsOtherCategory(!isOtherCategory)
+        setCategory('')
+    }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // submit form 
@@ -147,59 +161,111 @@ const Contacts = () => {
             "dateOfBirth": editDateOfBirth
         }
         axios.put(url, data)
-            .then((result) => {
+            .then(() => {
                 getData();
-                clear();
+                if(!isEditFormValid()) return;
                 toast.success("Contact has been updated.");
+                handleClose();
             }).catch((error) => {
                 toast.error(error);
             })
+            
     }
-    const checkForm = () => {
+    const isEditFormValid = () => {
+        if (!editName) {
+            toast.error("Please input a valid name.");
+            return false;
+        }
+        if (!/^[a-zA-Z]+$/.test(editName)) {
+            toast.error("Name should contain only letters.");
+            return false;
+        }
+        if (!editSurname) {
+            toast.error("Please input a valid surname.");
+            return false;
+        }
+        if (!/^[a-zA-Z]+$/.test(editSurname)) {
+            toast.error("Surname should contain only letters.");
+            return false;
+        }
+        if (!editEmail) {
+            toast.error("Please input a valid email address.");
+            return false;
+        }
+        if (!isValidEmail(editEmail)) {
+            toast.error("Invalid email address.");
+            return false;
+        }
+        if (!editPassword) {
+            toast.error(`Please input a password before submitting.`);
+            return false;
+        }
+        if (!validatePassword(editPassword)) {
+            toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
+            return false;
+        }
+        if (editCategory === '--Choose a category--') {
+            toast.error("Pick a category before submitting.");
+            return false;
+        }
+        if (!validatePhoneNumber(editPhone)) {
+            toast.error("Phone number should have exactly 9 symbols. Digits only.");
+            return false;
+        }
+        if (!editDateOfBirth) {
+            toast.error("Please select a date of birth.");
+            return false;
+        }
+        return true;
+    }
+    const isFormValid = () => {
         if (!name) {
             toast.error("Please input a valid name.");
-            return;
+            return false;
         }
         if (!/^[a-zA-Z]+$/.test(name)) {
             toast.error("Name should contain only letters.");
-            return;
+            return false;
         }
         if (!surname) {
             toast.error("Please input a valid surname.");
-            return;
+            return false;
         }
         if (!/^[a-zA-Z]+$/.test(surname)) {
             toast.error("Surname should contain only letters.");
-            return;
+            return false;
         }
         if (!email) {
             toast.error("Please input a valid email address.");
-            return;
+            return false;
         }
         if (!isValidEmail(email)) {
             toast.error("Invalid email address.");
-            return;
+            return false;
         }
         if (!password) {
             toast.error(`Please input a password before submitting.`);
-            return;
+            return false;
         }
         if (!validatePassword(password)) {
             toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
-            return;
+            return false;
         }
         if (category === '--Choose a category--') {
             toast.error("Pick a category before submitting.");
-            return;
+            return false;
         }
         if (!validatePhoneNumber(phone)) {
             toast.error("Phone number should have exactly 9 symbols. Digits only.");
-            return;
+            return false;
         }
         if (!dateOfBirth) {
             toast.error("Please select a date of birth.");
-            return;
+            return false;
         }
+
+        return true;
+
     }
     // This code sends a POST request to add a new contact
     // updates the contact list and clears input fields 
@@ -215,7 +281,7 @@ const Contacts = () => {
             "category": category,
             "dateOfBirth": dateOfBirth
         }
-        checkForm();
+        if(!isFormValid()) return;
         axios.post(url, data)
             .then((result) => {
                 getData();
@@ -266,13 +332,18 @@ const Contacts = () => {
 
                     <Col>
 
-                        <select className="form-control" id="cat-select" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    { !isOtherCategory ?
+                        <select style={{"min-width": "182px"}} className="form-control" id="cat-select" value={category} onChange={(e) => __setCategory(e.target.value)}>
                             <option value="">--Choose a category--</option>
                             <option value="business">Business</option>
                             <option value="personal">Personal</option>
                             <option value="other">Other</option>
-                        </select>
-
+                        </select> :
+                        <span style={{display: "flex", 'align-items': "center", gap: '8px'}}>
+                          <input style={{"min-width": "64px"}}type="text" className="form-control" placeholder="Enter Category" value={category} onChange={(e) => __setCategory(e.target.value)} />
+                          <CloseButton onClick={() => resetCategory(!isOtherCategory)}/>
+                        </span>
+                    }
                     </Col>
 
                     <Col><input type="text" className="form-control" placeholder="Enter phone number"
@@ -383,7 +454,6 @@ const Contacts = () => {
                     </Button>
                     <Button variant="primary" onClick={() => {
                         handleUpdate();
-                        handleClose();
                     }}>
                         Save Changes
                     </Button>
