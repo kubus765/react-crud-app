@@ -11,21 +11,19 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
 
-
-
 const Contacts = () => {
     // handlers for the modal popups
     const [show, setShow] = useState(false);
 
     const [isOtherCategory, setIsOtherCategory] = useState(false)
-
+    // 
     const __setCategory = (data) => {
         if (data === 'other') {
             setIsOtherCategory(true)
         }
         setCategory(data)
     }
-
+    
     const resetCategory = () => {
         setIsOtherCategory(!isOtherCategory)
         setCategory('')
