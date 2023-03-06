@@ -13,5 +13,6 @@ namespace web_app_crud_contacts.Models
 
         }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Login> Login { get; set; }
     }
 }

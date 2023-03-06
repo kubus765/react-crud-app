@@ -8,10 +8,6 @@ namespace web_app_crud_contacts.Models
 {
     public class LoginContext : DbContext
     {
-        public LoginContext(DbContextOptions<LoginContext>options) : base(options) 
-        { 
-
-        }
-        public DbSet<Login> Login { get; set; }
+        
     }
 }
