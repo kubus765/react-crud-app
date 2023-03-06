@@ -42,15 +42,9 @@ Most crucial files are:
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
-- Validation for form inputs to ensure correct data format (e.g. valid email address).
-- Fix the date format (currently also time is displayed)
+
 - Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
-- Add an option to input a subcategory data if selected category type is "Other"
-- Pagination to limit the number of contacts displayed on a single page.
-- Option to export contacts to a CSV or Excel file.
-- Option to import contacts from a CSV or Excel file.
-- Sorting functionality to sort contacts based on different criteria (e.g. name, date added).
-- Search functionality to search for contacts based on name, email, phone number, or category.
+
 _________________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
