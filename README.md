@@ -32,15 +32,6 @@ Current functionalities:
 - Full form data validation 
 - Edit an existing contact
 
-Most crucial files are: 
-- Contacts.js
-- Program.cs
-- Contact.cs
-- ContactContext.cs
-- ContactController.cs
-
-(You can find some useful comments in them about how the application works front and back end.)
-
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
 
