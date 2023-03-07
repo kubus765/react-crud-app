@@ -3,13 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
-import { isFormValid } from "../helpers/Validation";
 
-const Form = () => {
+const Form = ({handleSave}) => {
     
     // submit form 
     const [name, setName] = useState('')
@@ -35,40 +33,9 @@ const Form = () => {
         setCategory('')
     }
 
-    // This code sends a POST request to add a new contact
-    // updates the contact list and clears input fields 
-    // after a successful response displays a toast message.
-    const handleSave = () => {
-        const url = 'https://localhost:7275/api/Contact';
-        const data = {
-            "name": name,
-            "surname": surname,
-            "email": email,
-            "password": password,
-            "phone": phone,
-            "category": category,
-            "dateOfBirth": dateOfBirth
-        }
-        if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
-        axios.post(url, data)
-            .then(() => {
-                clear();
-                toast.success("Contact has been added.");
-            }).catch((error) => {
-                toast.error(error);
-            })
-    }
     // This code resets a form's input fields by setting several state 
     // variables to empty strings or null values.
-    const clear = () => {
-        setName('');
-        setSurname('');
-        setEmail('');
-        setPassword('');
-        setPhone('');
-        setCategory('');
-        setDateOfBirth('');
-    }
+
 
     return (
         <Fragment>
@@ -110,7 +77,7 @@ const Form = () => {
                         value={phone} onChange={(e) => setPhone(e.target.value)} /></Col>
                     <Col><input type="date" className="form-control" placeholder="Enter date of birth"
                         value={dateOfBirth} style={{"min-width": "64px", "text-align": "center" }} onChange={(e) => setDateOfBirth(e.target.value)} /></Col>
-                    <Col><button className="btn btn-primary" onClick={() => handleSave()}>Submit</button></Col>
+                    <Col><button className="btn btn-primary" onClick={() => handleSave({name,surname,email,password,category,phone,dateOfBirth})}>Submit</button></Col>
                 </Row>
             </Container>
         </Fragment>

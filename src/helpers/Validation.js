@@ -18,7 +18,6 @@ const validatePhoneNumber = (phoneNumber) => {
     return /^\d{9}$/.test(phoneNumber);
 }
 
-
 export const isFormValid = ({name,surname,email,password,category,phone,dateOfBirth}) => {
     if (!name) {
         toast.error("Please input a valid name.");

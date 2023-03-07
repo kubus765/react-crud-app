@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { isFormValid } from "../helpers/Validation";
 
-const Contacts = () => {
+const Contacts = ({handleDelete, handleSave}) => {
     
     // handlers for the modal popups
     const [show, setShow] = useState(false);
@@ -69,23 +69,6 @@ const Contacts = () => {
             })
     }
 
-    // This code sends a DELETE request to remove a contact with the given ID,
-    // displays a confirmation dialog before deleting
-    // updates the contact list and displays a toast message after a successful response.
-    const handleDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this contact?") == true) {
-            axios.delete(`https://localhost:7275/api/Contact/${id}`)
-                .then((result) => {
-                    if (result.status === 200) {
-                        toast.success("Contact has been removed.");
-                        getData();
-                    }
-                })
-                .catch((error) => {
-                    toast.error(error);
-                })
-        }
-    }
     // This code sends a PUT request to an API endpoint to update a contact's information, using the axios library. 
     // It displays a success message using the toast library if the request succeeds, or an error message if it fails.
     const handleUpdate = () => {
@@ -100,10 +83,10 @@ const Contacts = () => {
             "category": editCategory,
             "dateOfBirth": editDateOfBirth
         }
+        if(!isFormValid({name:editName,surname:editSurname,email:editEmail,password:editPassword,phone:editPhone,category:editCategory,dateOfBirth:editDateOfBirth})) return;
         axios.put(url, data)
             .then(() => {
                 getData();
-                if(!isFormValid({name:editName,surname:editSurname,email:editEmail,password:editPassword,phone:editPhone,category:editCategory,dateOfBirth:editDateOfBirth})) return;
                 toast.success("Contact has been updated.");
                 handleClose();
             }).catch((error) => {
