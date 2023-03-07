@@ -8,11 +8,11 @@ namespace web_app_crud_contacts.Models
 {
     public class ContactContext : DbContext
     {
-        public ContactContext(DbContextOptions<ContactContext>options) : base(options) 
-        { 
+        public ContactContext(DbContextOptions<ContactContext> options) : base(options)
+        {
 
         }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Login> Login { get; set; }
+        public DbSet<Login> Users { get; set; }
     }
 }

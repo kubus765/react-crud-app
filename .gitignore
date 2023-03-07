@@ -33,3 +33,5 @@ obj/Debug/net6.0/ref/web-app-crud-contacts.dll
 obj/Debug/net6.0/refint/web-app-crud-contacts.dll
 obj/Debug/net6.0/web-app-crud-contacts.dll
 obj/Debug/net6.0/web-app-crud-contacts.pdb
+*.vsidx
+*.v2

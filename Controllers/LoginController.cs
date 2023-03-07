@@ -25,14 +25,25 @@ namespace web_app_crud_contacts.Controllers
             _loginContext = loginContext;
         }
 
-        // This is a HTTP GET request method for retrieving all contacts from the database.
-        // It checks if there are any contacts available and returns a 404 Not Found status if there are none.
-        // Otherwise, it returns a list of contacts in the response.
+        // This is a HTTP GET request method for retrieving username and password from the database.
+        // It checks if there are any available and returns a 404 Not Found status if there are none.
+        // Otherwise, it returns a list in the response.
 
-        [HttpPost]
-        public async Task<ActionResult<IEnumerable<Login>>> PostLogin()
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Login>> GetLogin(int id)
         {
-            return await _loginContext.Login.ToListAsync();
+            if (_loginContext.Users == null)
+            {
+                return NotFound();
+            }
+            var login = await _loginContext.Users.FindAsync(id);
+            if (login == null)
+            {
+                return NotFound();
+            }
+            return login;
         }
     }
+
 }
