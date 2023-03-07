@@ -361,7 +361,6 @@ const Contacts = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Surname</th>
@@ -380,7 +379,6 @@ const Contacts = () => {
                                 return (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>{item.id}</td>
                                         <td>{item.name}</td>
                                         <td>{item.surname}</td>
                                         <td>{item.email}</td>
