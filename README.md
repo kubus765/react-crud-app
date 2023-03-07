@@ -23,21 +23,19 @@ Additional packages used in the project:
 
 Current functionalities:
 
-- Modal popup to edit contacts.
-- Drop-down menu for selecting contact category during add/edit.
-- Confirmation popup before deleting a contact.
 - View the list of contacts that are saved on a SQL Database
 - Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
-- Delete an existing contact
-- Full form data validation 
 - Edit an existing contact
+- Delete an existing contact
+- Modal popups
+- Toast Popups
+- Full form data validation 
+
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
 
-- Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
-
-_________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
