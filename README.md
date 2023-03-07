@@ -35,9 +35,7 @@ Current functionalities:
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
 
-- Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
-
-_________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
