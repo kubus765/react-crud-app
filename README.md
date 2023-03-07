@@ -29,28 +29,14 @@ Current functionalities:
 - View the list of contacts that are saved on a SQL Database
 - Submit a new contact with the data (Name, Surname, Password, Email, Category, Phone number, Date of birth)
 - Delete an existing contact
+- Full form data validation 
 - Edit an existing contact
-
-Most crucial files are: 
-- Contacts.js
-- Program.cs
-- Contact.cs
-- ContactContext.cs
-- ContactController.cs
-
-(You can find some useful comments in them about how the application works front and back end.)
 
 Still to do:
 - Add basic authentication (only a logged in user can alter the database)
-- Validation for form inputs to ensure correct data format (e.g. valid email address).
-- Fix the date format (currently also time is displayed)
+
 - Fix the duplicated ID (one is from the react bootstrap and the other is saved on the SQL Database and is never reset)
-- Add an option to input a subcategory data if selected category type is "Other"
-- Pagination to limit the number of contacts displayed on a single page.
-- Option to export contacts to a CSV or Excel file.
-- Option to import contacts from a CSV or Excel file.
-- Sorting functionality to sort contacts based on different criteria (e.g. name, date added).
-- Search functionality to search for contacts based on name, email, phone number, or category.
+
 _________________________________________________________________________________________________________________________________
 # Getting Started with Create React App
 
