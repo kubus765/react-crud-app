@@ -33,7 +33,7 @@ Current functionalities:
 
 
 Still to do:
-- Add basic authentication (only a logged in user can alter the database)
+- Do the frontend part of user authentication
 
 ______________________________________________________________________________________________________________________________
 # Getting Started with Create React App
