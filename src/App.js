@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
+import { isFormValid } from ".//helpers/Validation";
 
 // This code defines a functional React component called App, 
 // which renders a div element with the class name "App" and includes another component called Contacts. 
@@ -48,10 +48,9 @@ const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) =>
       "category": category,
       "dateOfBirth": dateOfBirth
   }
-  //if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
+  if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
   axios.post(url, data)
       .then(() => {
-         //clear();
           toast.success("Contact has been added.");
           getData();
       }).catch((error) => {
