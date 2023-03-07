@@ -319,13 +319,13 @@ const Contacts = () => {
             &nbsp;
             <Container>
                 <Row>
-                    <Col><input type="text" className="form-control" placeholder="Enter Name"
+                    <Col><input style={{"min-width": "80px"}} type="text" className="form-control" placeholder="Enter Name"
                         value={name} onChange={(e) => setName(e.target.value)} /></Col>
-                    <Col><input type="text" className="form-control" placeholder="Enter Surname"
+                    <Col><input style={{"min-width": "80px"}} type="text" className="form-control" placeholder="Enter Surname"
                         value={surname} onChange={(e) => setSurname(e.target.value)} /></Col>
-                    <Col><input type="text" className="form-control" placeholder="Enter e-mail"
+                    <Col><input style={{"min-width": "200px"}} type="text" className="form-control" placeholder="Enter e-mail"
                         value={email} onChange={(e) => setEmail(e.target.value)} /></Col>
-                    <Col><input type="text" className="form-control" placeholder="Enter password"
+                    <Col><input style={{"min-width": "64px"}} type="text" className="form-control" placeholder="Enter password"
                         value={password} onChange={(e) => setPassword(e.target.value)} /></Col>
 
                     <Col>
@@ -344,7 +344,7 @@ const Contacts = () => {
                     }
                     </Col>
 
-                    <Col><input type="text" className="form-control" placeholder="Enter phone number"
+                    <Col><input style={{"min-width": "64px"}} type="text" className="form-control" placeholder="Enter phone number"
                         value={phone} onChange={(e) => setPhone(e.target.value)} /></Col>
                     <Col><input type="date" className="form-control" placeholder="Enter date of birth"
                         value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} /></Col>
