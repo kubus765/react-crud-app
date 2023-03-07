@@ -29,21 +29,42 @@ namespace web_app_crud_contacts.Controllers
         // It checks if there are any available and returns a 404 Not Found status if there are none.
         // Otherwise, it returns a list in the response.
 
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Login>> GetLogin(int id)
+        [HttpPost("login/{username}/{password}")]
+        public async Task<ActionResult<string>> GetLogin(string username, string password)
         {
-            if (_loginContext.Users == null)
+            if (username == "" || password == "")
             {
-                return NotFound();
+                return "Empty data";
             }
-            var login = await _loginContext.Users.FindAsync(id);
+
+            var login = _loginContext.Users.Where<Login>(user => user.username == username && user.password == password).FirstOrDefault();
+            
             if (login == null)
             {
-                return NotFound();
+                return "User not found";
             }
-            return login;
+
+            return login.access_token;
         }
+
+        [HttpPost("verify_token/{token}")]
+        public async Task<ActionResult<bool>> GetLogin(string token)
+        {
+            if (token == "" || token == null)
+            {
+                return false;
+            }
+
+            var _token = _loginContext.Users.Where<Login>(_token => _token.access_token == token).FirstOrDefault();
+
+            if (_token == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
 
 }
