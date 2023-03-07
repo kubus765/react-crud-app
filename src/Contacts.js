@@ -12,24 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
 
 const Contacts = () => {
+    
     // handlers for the modal popups
     const [show, setShow] = useState(false);
-
-    const [isOtherCategory, setIsOtherCategory] = useState(false)
-    // 
-    const __setCategory = (data) => {
-        if (data === 'other') {
-            setIsOtherCategory(true)
-        }
-        setCategory(data)
-    }
-    
-    const resetCategory = () => {
-        setIsOtherCategory(!isOtherCategory)
-        setCategory('')
-    }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     // submit form 
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
@@ -38,6 +26,7 @@ const Contacts = () => {
     const [category, setCategory] = useState('')
     const [phone, setPhone] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
+
     // edit form (modal)
     const [editID, setEditId] = useState('')
     const [editName, setEditName] = useState('')
@@ -265,6 +254,22 @@ const Contacts = () => {
         return true;
 
     }
+
+    // "Other" category logic (for displaying an input text box instead of a <select>)
+    const [isOtherCategory, setIsOtherCategory] = useState(false)
+    
+    const __setCategory = (data) => {
+        if (data === 'other') {
+            setIsOtherCategory(true)
+        }
+        setCategory(data)
+    }
+    
+    const resetCategory = () => {
+        setIsOtherCategory(!isOtherCategory)
+        setCategory('')
+    }
+    
     // This code sends a POST request to add a new contact
     // updates the contact list and clears input fields 
     // after a successful response displays a toast message.
