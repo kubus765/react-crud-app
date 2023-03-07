@@ -8,11 +8,11 @@ const isValidEmail = (email) => {
 }
 // regex for password verification
 const validatePassword = (password) => {
-    // Length min 8 max 32, at least one uppercase letter, one lowercase letter, one number and one special character, with a minimum length of 8 characters
+    // Minimum 8 and maximum 32 characters, at least one uppercase letter, at least one lowercase letter, at least one number and at least one special character
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/;
     
     return passwordRegex.test(password);
-}
+  }
 
 // regex for phone number validation
 const validatePhoneNumber = (phoneNumber) => {
@@ -49,7 +49,7 @@ export const isFormValid = ({name,surname,email,password,category,phone,dateOfBi
         return false;
     }
     if (!validatePassword(password)) {
-        toast.error(`Password needs to be at least 8 characters long, have at least one uppercase letter, one lowercase letter, one number and one special character.`);
+        toast.error(`Password needs to be at least 8 characters long, 32 maximum characters, have at least one uppercase letter, one lowercase letter, one number and one special character.`);
         return false;
     }
     if (category === '--Choose a category--') {
