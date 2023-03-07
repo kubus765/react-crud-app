@@ -9,7 +9,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import { validatePassword, validatePhoneNumber, isValidEmail } from "../helpers/Validation";
+import { isFormValid } from "../helpers/Validation";
 
 const Contacts = () => {
     
@@ -103,60 +103,13 @@ const Contacts = () => {
         axios.put(url, data)
             .then(() => {
                 getData();
-                if(!isEditFormValid()) return;
+                if(!isFormValid({name:editName,surname:editSurname,email:editEmail,password:editPassword,phone:editPhone,category:editCategory,dateOfBirth:editDateOfBirth})) return;
                 toast.success("Contact has been updated.");
                 handleClose();
             }).catch((error) => {
                 toast.error(error);
             })
             
-    }
-    const isEditFormValid = () => {
-        if (!editName) {
-            toast.error("Please input a valid name.");
-            return false;
-        }
-        if (!/^[a-zA-Z]+$/.test(editName)) {
-            toast.error("Name should contain only letters.");
-            return false;
-        }
-        if (!editSurname) {
-            toast.error("Please input a valid surname.");
-            return false;
-        }
-        if (!/^[a-zA-Z]+$/.test(editSurname)) {
-            toast.error("Surname should contain only letters.");
-            return false;
-        }
-        if (!editEmail) {
-            toast.error("Please input a valid email address.");
-            return false;
-        }
-        if (!isValidEmail(editEmail)) {
-            toast.error("Invalid email address.");
-            return false;
-        }
-        if (!editPassword) {
-            toast.error(`Please input a password before submitting.`);
-            return false;
-        }
-        if (!validatePassword(editPassword)) {
-            toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
-            return false;
-        }
-        if (editCategory === '--Choose a category--') {
-            toast.error("Pick a category before submitting.");
-            return false;
-        }
-        if (!validatePhoneNumber(editPhone)) {
-            toast.error("Phone number should have exactly 9 symbols. Digits only.");
-            return false;
-        }
-        if (!editDateOfBirth) {
-            toast.error("Please select a date of birth.");
-            return false;
-        }
-        return true;
     }
     
     // This code resets a form's input fields by setting several state 

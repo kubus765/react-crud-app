@@ -7,8 +7,9 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
-import { validatePassword, validatePhoneNumber, isValidEmail } from "../helpers/Validation";
-const Contacts = () => {
+import { isFormValid } from "../helpers/Validation";
+
+const Form = () => {
     
     // submit form 
     const [name, setName] = useState('')
@@ -18,74 +19,6 @@ const Contacts = () => {
     const [category, setCategory] = useState('')
     const [phone, setPhone] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
-
-    // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
-    // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        getData();
-    }, [])
-
-    const getData = () => {
-        axios.get('https://localhost:7275/api/Contact')
-            .then((result) => {
-                setData(result.data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
-    const isFormValid = () => {
-        if (!name) {
-            toast.error("Please input a valid name.");
-            return false;
-        }
-        if (!/^[a-zA-Z]+$/.test(name)) {
-            toast.error("Name should contain only letters.");
-            return false;
-        }
-        if (!surname) {
-            toast.error("Please input a valid surname.");
-            return false;
-        }
-        if (!/^[a-zA-Z]+$/.test(surname)) {
-            toast.error("Surname should contain only letters.");
-            return false;
-        }
-        if (!email) {
-            toast.error("Please input a valid email address.");
-            return false;
-        }
-        if (!isValidEmail(email)) {
-            toast.error("Invalid email address.");
-            return false;
-        }
-        if (!password) {
-            toast.error(`Please input a password before submitting.`);
-            return false;
-        }
-        if (!validatePassword(password)) {
-            toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
-            return false;
-        }
-        if (category === '--Choose a category--') {
-            toast.error("Pick a category before submitting.");
-            return false;
-        }
-        if (!validatePhoneNumber(phone)) {
-            toast.error("Phone number should have exactly 9 symbols. Digits only.");
-            return false;
-        }
-        if (!dateOfBirth) {
-            toast.error("Please select a date of birth.");
-            return false;
-        }
-
-        return true;
-
-    }
 
     // "Other" category logic (for displaying an input text box instead of a <select>)
     const [isOtherCategory, setIsOtherCategory] = useState(false)
@@ -116,10 +49,9 @@ const Contacts = () => {
             "category": category,
             "dateOfBirth": dateOfBirth
         }
-        if(!isFormValid()) return;
+        if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
         axios.post(url, data)
-            .then((result) => {
-                getData();
+            .then(() => {
                 clear();
                 toast.success("Contact has been added.");
             }).catch((error) => {
@@ -185,4 +117,4 @@ const Contacts = () => {
     )
 }
 
-export default Contacts;
+export default Form;
