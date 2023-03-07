@@ -1,7 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -10,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
-
+import { validatePassword, validatePhoneNumber, isValidEmail } from "../helpers/Validation";
 const Contacts = () => {
     
     // submit form 
@@ -22,22 +19,6 @@ const Contacts = () => {
     const [phone, setPhone] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
 
-    // regex for email verification
-    const isValidEmail = (email) => {
-        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return regex.test(email);
-      }
-    // regex for password verification
-    const validatePassword = (password) => {
-        // At least one uppercase letter, one lowercase letter, one number and one special character
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        
-        return passwordRegex.test(password);
-      }
-    // regex for phone number validation
-      function validatePhoneNumber(phoneNumber) {
-        return /^\d{9}$/.test(phoneNumber);
-      }
     // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
     // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
