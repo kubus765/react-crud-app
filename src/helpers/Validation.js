@@ -8,8 +8,8 @@ const isValidEmail = (email) => {
 }
 // regex for password verification
 const validatePassword = (password) => {
-    // At least one uppercase letter, one lowercase letter, one number and one special character, with a minimum length of 8 characters
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // Length min 8 max 32, at least one uppercase letter, one lowercase letter, one number and one special character, with a minimum length of 8 characters
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/;
     
     return passwordRegex.test(password);
 }
