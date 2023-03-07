@@ -30,7 +30,7 @@ namespace web_app_crud_contacts.Controllers
         // Otherwise, it returns a list in the response.
 
         [HttpPost("login/{username}/{password}")]
-        public async Task<ActionResult<string>> GetLogin(string username, string password)
+        public async Task<ActionResult<string>> PostLogin(string username, string password)
         {
             if (username == "" || password == "")
             {
@@ -46,9 +46,9 @@ namespace web_app_crud_contacts.Controllers
 
             return login.access_token;
         }
-
+        // 
         [HttpPost("verify_token/{token}")]
-        public async Task<ActionResult<bool>> GetLogin(string token)
+        public async Task<ActionResult<bool>> PostToken(string token)
         {
             if (token == "" || token == null)
             {
