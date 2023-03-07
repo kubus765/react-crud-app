@@ -48,7 +48,7 @@ export const isFormValid = ({name,surname,email,password,category,phone,dateOfBi
         return false;
     }
     if (!validatePassword(password)) {
-        toast.error(`Password has to have at least one uppercase letter, one lowercase letter, one number and one special character.`);
+        toast.error(`Password needs to be at least 8 characters long, have at least one uppercase letter, one lowercase letter, one number and one special character.`);
         return false;
     }
     if (category === '--Choose a category--') {

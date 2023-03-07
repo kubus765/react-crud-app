@@ -62,7 +62,7 @@ const Contacts = ({handleDelete, handleSave}) => {
                 setEditPassword(result.data.password);
                 setEditCategory(result.data.category);
                 setEditPhone(result.data.phone);
-                setEditDateOfBirth(result.data.dateOfBirth);
+                setEditDateOfBirth(result.data.dateOfBirth.split('T')[0]);
             })
             .catch((error) => {
                 console.log(error)
