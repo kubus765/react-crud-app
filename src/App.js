@@ -70,7 +70,7 @@ const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) =>
     // updates the contact list and displays a toast message after a successful response.
 
 const handleDelete = (id) => {
-  if (window.confirm("Are you sure you want to delete this contact?") == true) {
+  if (window.confirm("Are you sure you want to delete this contact?") === true) {
     axios.delete(`https://localhost:7275/api/Contact/${id}`)
         .then((result) => {
             if (result.status === 200) {
