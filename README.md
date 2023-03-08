@@ -30,10 +30,7 @@ Current functionalities:
 - Modal popups
 - Toast Popups
 - Full form data validation 
-
-
-Still to do:
-- Do the frontend part of user authentication
+- User Authentications
 
 ______________________________________________________________________________________________________________________________
 # Getting Started with Create React App
