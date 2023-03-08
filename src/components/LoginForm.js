@@ -68,6 +68,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
       <Container>
         <Row>
           <Col>
+          &nbsp;
             <h2>Please log in to make changes.</h2>
           </Col>
         </Row>
