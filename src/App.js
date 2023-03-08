@@ -45,24 +45,28 @@ const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) =>
     toast.error("Please login to add a new contact.");
     return;
   }
-  const url = 'https://localhost:7275/api/Contact';
-  const data = {
-      "name": name,
-      "surname": surname,
-      "email": email,
-      "password": password,
-      "phone": phone,
-      "category": category,
-      "dateOfBirth": dateOfBirth
+  else
+  {
+    const url = 'https://localhost:7275/api/Contact';
+    const data = {
+        "name": name,
+        "surname": surname,
+        "email": email,
+        "password": password,
+        "phone": phone,
+        "category": category,
+        "dateOfBirth": dateOfBirth
+    }
+    if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
+    axios.post(url, data)
+        .then(() => {
+            toast.success("Contact has been added.");
+            getData();
+        }).catch((error) => {
+            toast.error(error);
+        })
   }
-  if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
-  axios.post(url, data)
-      .then(() => {
-          toast.success("Contact has been added.");
-          getData();
-      }).catch((error) => {
-          toast.error(error);
-      })
+
 }
 
     // This code sends a DELETE request to remove a contact with the given ID,
