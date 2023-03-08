@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
 const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and removed unused setIsLoggedIn
-
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -79,14 +79,14 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
       toast.error(error);
     }
   };
-  
+
   return (
     <Fragment>
       <ToastContainer />
       <Container>
         <Row>
           <Col>
-          &nbsp;
+            &nbsp;
             <h2>Please log in to make changes.</h2>
           </Col>
         </Row>
@@ -105,7 +105,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
           <Col>
             <input
               style={{ minWidth: "80px", textAlign: "center" }}
-              type="text"
+              input type="password"
               className="form-control"
               placeholder="Enter password"
               value={password}
@@ -115,7 +115,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
           <Col>
             <button
               className="btn btn-primary"
-              onClick={handleSendLogin} // removed parameter passing
+              onClick={handleSendLogin}
             >
               Log in
             </button>
