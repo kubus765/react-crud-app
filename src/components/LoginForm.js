@@ -45,19 +45,6 @@ const LoginForm = ({props, setIsLoggedIn}) => {
         });
       }, []);
   
-      useEffect(() => {
-        window.addEventListener("load", () => {
-          checkIfLogin().then((isLoggedIn) => {
-            setIsLoggedIn(isLoggedIn);
-          });
-        });
-        window.addEventListener("storage", () => {
-          checkIfLogin().then((isLoggedIn) => {
-            setIsLoggedIn(isLoggedIn);
-          });
-        });
-      }, []);
-
     const handleSendLogin = async ({ username, password }) => {
         const token = `https://localhost:7275/api/Login/login/${username}/${[
           password,

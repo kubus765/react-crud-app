@@ -137,7 +137,7 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
                                         <td colSpan={2}>
                                         {isLoggedIn ? 
                                             <div>
-                                                <button className="btn btn-primary" onClick={() => handleEdit(item.id)}>Edit</button>
+                                                <button className="btn btn-primary" onClick={() => handleEdit(item.id)}>Edit</button>&nbsp;
                                                 <button className="btn btn-primary" onClick={() => handleDelete(item.id)}>Delete</button>
                                             </div>
                                             :
