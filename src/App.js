@@ -18,6 +18,10 @@ function App() {
     // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleLoginStatusChange = (isLoggedIn) => {
+      setIsLoggedIn(isLoggedIn);
+    };
     
     useEffect(() => {
       getData();
@@ -36,9 +40,7 @@ function App() {
     // updates the contact list and clears input fields 
     // after a successful response displays a toast message.
   
-    const handleLoginStatusChange = (isLoggedIn) => {
-      setIsLoggedIn(isLoggedIn);
-    };
+   
 
 const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) => {
   if (!isLoggedIn) {
@@ -66,7 +68,6 @@ const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) =>
             toast.error(error);
         })
   }
-
 }
 
     // This code sends a DELETE request to remove a contact with the given ID,
