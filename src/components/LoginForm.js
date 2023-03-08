@@ -11,7 +11,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
   
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [isLoading, setIsLoading] = useState("");
   // Check if user is already logged in on component mount
   useEffect(() => {
     checkIfLoginNoToast().then((isLoggedIn) => {
@@ -61,7 +61,20 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
   };
 
   // Handle form submission
-  const handleSendLogin = async () => { // removed destructuring of parameters
+  const handleSendLogin = async () => {
+    // Check if fields are empty
+    if (username === "" || password === "") {
+      toast.error("Please enter a username and password.");
+      return;
+    }
+  
+    // Check if function is already executing
+    if (isLoading) {
+      return;
+    }
+  
+    setIsLoading(true);
+  
     const token = `https://localhost:7275/api/Login/login/${username}/${password}`;
     const data = {
       username: username,
@@ -77,9 +90,11 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
       }
     } catch (error) {
       toast.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
-
+  
   return (
     <Fragment>
       <ToastContainer />
