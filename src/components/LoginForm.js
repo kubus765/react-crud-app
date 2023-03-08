@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
 const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and removed unused setIsLoggedIn
-  
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState("");
@@ -67,14 +67,14 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
       toast.error("Please enter a username and password.");
       return;
     }
-  
+
     // Check if function is already executing
     if (isLoading) {
       return;
     }
-  
+
     setIsLoading(true);
-  
+
     const token = `https://localhost:7275/api/Login/login/${username}/${password}`;
     const data = {
       username: username,
@@ -94,7 +94,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
       setIsLoading(false);
     }
   };
-  
+
   return (
     <Fragment>
       <ToastContainer />

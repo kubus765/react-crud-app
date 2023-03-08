@@ -10,8 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { isFormValid } from "../helpers/Validation";
 
-const Contacts = ({handleDelete, isLoggedIn}) => {
-    
+const Contacts = ({ handleDelete, isLoggedIn }) => {
+
     // handlers for the modal popups
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -82,7 +82,7 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
             "category": editCategory,
             "dateOfBirth": editDateOfBirth
         }
-        if(!isFormValid({name:editName,surname:editSurname,email:editEmail,password:editPassword,phone:editPhone,category:editCategory,dateOfBirth:editDateOfBirth})) return;
+        if (!isFormValid({ name: editName, surname: editSurname, email: editEmail, password: editPassword, phone: editPhone, category: editCategory, dateOfBirth: editDateOfBirth })) return;
         axios.put(url, data)
             .then(() => {
                 getData();
@@ -91,9 +91,9 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
             }).catch((error) => {
                 toast.error(error);
             })
-            
+
     }
-    
+
     // This code resets a form's input fields by setting several state 
     // variables to empty strings or null values.
 
@@ -132,17 +132,17 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
                                         <td>{item.email}</td>
                                         <td>{item.password}</td>
                                         <td>{item.category}</td>
-                                        <td>{item.phone.slice(0,3)}-{item.phone.slice(3,6)}-{item.phone.slice(6)}</td>
+                                        <td>{item.phone.slice(0, 3)}-{item.phone.slice(3, 6)}-{item.phone.slice(6)}</td>
                                         <td>{item.dateOfBirth.split('T')[0]}</td>
                                         <td colSpan={2}>
-                                        {isLoggedIn ? 
-                                            <div>
-                                                <button className="btn btn-primary" onClick={() => handleEdit(item.id)}>Edit</button>&nbsp;
-                                                <button className="btn btn-primary" onClick={() => handleDelete(item.id)}>Delete</button>
-                                            </div>
-                                            :
-                                            <p>Please log in to make changes.</p>
-                                        }
+                                            {isLoggedIn ?
+                                                <div>
+                                                    <button className="btn btn-primary" onClick={() => handleEdit(item.id)}>Edit</button>&nbsp;
+                                                    <button className="btn btn-primary" onClick={() => handleDelete(item.id)}>Delete</button>
+                                                </div>
+                                                :
+                                                <p>Please log in to make changes.</p>
+                                            }
                                         </td>
                                     </tr>
                                 )
@@ -158,7 +158,7 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
                 The modal includes "Close" and "Save Changes" buttons. When the "Save Changes" button is clicked, 
                 the handleUpdate function is called to update the contact information, and the modal is closed.
             */}
-            
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modify contact</Modal.Title>
@@ -210,7 +210,7 @@ const Contacts = ({handleDelete, isLoggedIn}) => {
                 </Modal.Footer>
             </Modal>
         </Fragment>
-        
+
     )
 }
 
