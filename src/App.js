@@ -94,8 +94,8 @@ return (
     <div className="App">
       {isLoggedIn ? (
         <div>
-          <Form handleSave={handleSave}/>
-          <button onClick={handleLogout}>Logout</button>
+          <Form handleSave={handleSave}/><br/>
+          <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <LoginForm onLoginStatusChange={handleLoginStatusChange} setIsLoggedIn={setIsLoggedIn} />
