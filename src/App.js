@@ -87,6 +87,7 @@ const handleDelete = (id) => {
   const handleLogout = () => {
     // do your logout logic here
     setIsLoggedIn(false);
+    toast.success("Logged out.");
     document.cookie="0000000000";
   }
 

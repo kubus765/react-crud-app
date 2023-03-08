@@ -14,7 +14,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
 
   // Check if user is already logged in on component mount
   useEffect(() => {
-    checkIfLogin().then((isLoggedIn) => {
+    checkIfLoginNoToast().then((isLoggedIn) => {
       onLoginStatusChange(isLoggedIn);
     });
   }, [onLoginStatusChange]); // added onLoginStatusChange to dependency array to prevent stale closures
@@ -36,6 +36,24 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
         }
       } catch (error) {
         toast.error(error);
+        return false;
+      }
+    }
+    return false;
+  };
+  const checkIfLoginNoToast = async () => {
+    const token = document.cookie;
+    if (token) {
+      const check = `https://localhost:7275/api/Login/verify_token/${token}`;
+      try {
+        const response = await axios.get(check);
+        const result = response.data;
+        if (result) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
         return false;
       }
     }
