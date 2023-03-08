@@ -1,10 +1,10 @@
 import './App.css';
 import Form from './components/Form';
+import LoginForm from './components/LoginForm';
 import Contacts from './components/Contacts';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { isFormValid } from ".//helpers/Validation";
@@ -17,10 +17,11 @@ function App() {
     // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
     // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
     const [data, setData] = useState([]);
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
     useEffect(() => {
-        getData();
-    }, [])
+      getData();
+    }, []);
     
   const getData = () => {
       axios.get('https://localhost:7275/api/Contact')
@@ -31,13 +32,19 @@ function App() {
               console.log(error)
           })
   }
-
     // This code sends a POST request to add a new contact
     // updates the contact list and clears input fields 
     // after a successful response displays a toast message.
   
+    const handleLoginStatusChange = (isLoggedIn) => {
+      setIsLoggedIn(isLoggedIn);
+    };
 
 const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) => {
+  if (!isLoggedIn) {
+    toast.error("Please login to add a new contact.");
+    return;
+  }
   const url = 'https://localhost:7275/api/Contact';
   const data = {
       "name": name,
@@ -77,16 +84,31 @@ const handleDelete = (id) => {
 }
 }
 
-  return (
+  const handleLogout = () => {
+    // do your logout logic here
+    setIsLoggedIn(false);
+    document.cookie="0000000000";
+  }
+
+return (
     <div className="App">
-      <Form handleSave={handleSave}/>
-      <br/><br/>
-     <Contacts 
-        data={data} 
-        handleDelete={handleDelete} 
-        />
+      {isLoggedIn ? (
+        <div>
+          <Form handleSave={handleSave}/>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <LoginForm onLoginStatusChange={handleLoginStatusChange} setIsLoggedIn={setIsLoggedIn} />
+          )}<br/>
+          <Contacts 
+            data={data} 
+            handleDelete={handleDelete} 
+            isLoggedIn={isLoggedIn}
+          />
     </div>
+    
   );
+  
 }
 
 export default App;

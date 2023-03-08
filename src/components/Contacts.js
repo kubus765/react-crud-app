@@ -8,10 +8,9 @@ import Col from 'react-bootstrap/Col';
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
 import { isFormValid } from "../helpers/Validation";
 
-const Contacts = ({handleDelete, handleSave}) => {
+const Contacts = ({handleDelete, isLoggedIn}) => {
     
     // handlers for the modal popups
     const [show, setShow] = useState(false);
@@ -136,8 +135,14 @@ const Contacts = ({handleDelete, handleSave}) => {
                                         <td>{item.phone.slice(0,3)}-{item.phone.slice(3,6)}-{item.phone.slice(6)}</td>
                                         <td>{item.dateOfBirth.split('T')[0]}</td>
                                         <td colSpan={2}>
-                                            <button className="btn btn-primary" onClick={() => handleEdit(item.id)} >Edit</button> &nbsp;
-                                            <button className="btn btn-primary" onClick={() => handleDelete(item.id)} >Delete</button>
+                                        {isLoggedIn ? 
+                                            <div>
+                                                <button className="btn btn-primary" onClick={() => handleEdit(item.id)}>Edit</button>
+                                                <button className="btn btn-primary" onClick={() => handleDelete(item.id)}>Delete</button>
+                                            </div>
+                                            :
+                                            <p>Please log in to make changes.</p>
+                                        }
                                         </td>
                                     </tr>
                                 )
@@ -205,6 +210,7 @@ const Contacts = ({handleDelete, handleSave}) => {
                 </Modal.Footer>
             </Modal>
         </Fragment>
+        
     )
 }
 

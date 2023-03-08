@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState,  Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import CloseButton from 'react-bootstrap/CloseButton';
 
@@ -48,7 +48,7 @@ const Form = ({handleSave}) => {
             &nbsp;
             <Container>
                 <Row>
-                    <Col><input style={{"min-width": "80px", "text-align": "center" }} type="text" class="form" className="form-control" placeholder="Enter Name"
+                    <Col><input style={{"min-width": "80px", "text-align": "center" }} type="text" className="form-control" placeholder="Enter Name"
                         value={name} onChange={(e) => setName(e.target.value)} /></Col>
                     <Col><input style={{"min-width": "80px", "text-align": "center" }} type="text" className="form-control" placeholder="Enter Surname"
                         value={surname} onChange={(e) => setSurname(e.target.value)} /></Col>
