@@ -14,43 +14,42 @@ import { isFormValid } from ".//helpers/Validation";
 // This component is exported as the default export of the file.
 function App() {
 
-    // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
-    // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
-    const [data, setData] = useState([]);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // This code retrieves contact data from an API endpoint and sets up the state variable data to hold the retrieved data. 
+  // It also ensures that the getData function is called when the component mounts to retrieve the data and display it on the page.
+  const [data, setData] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLoginStatusChange = (isLoggedIn) => {
-      setIsLoggedIn(isLoggedIn);
-    };
-    
-    useEffect(() => {
-      getData();
-    }, []);
-    
+  const handleLoginStatusChange = (isLoggedIn) => {
+    setIsLoggedIn(isLoggedIn);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const getData = () => {
-      axios.get('https://localhost:7275/api/Contact')
-          .then((result) => {
-              setData(result.data)
-          })
-          .catch((error) => {
-              console.log(error)
-          })
+    axios.get('https://localhost:7275/api/Contact')
+      .then((result) => {
+        setData(result.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
-    // This code sends a POST request to add a new contact
-    // updates the contact list and clears input fields 
-    // after a successful response displays a toast message.
-  
-   
+  // This code sends a POST request to add a new contact
+  // updates the contact list and clears input fields 
+  // after a successful response displays a toast message.
 
-const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) => {
-  if (!isLoggedIn) {
-    toast.error("Please login to add a new contact.");
-    return;
-  }
-  else
-  {
-    const url = 'https://localhost:7275/api/Contact';
-    const data = {
+
+
+  const handleSave = ({ name, surname, email, password, phone, category, dateOfBirth }) => {
+    if (!isLoggedIn) {
+      toast.error("Please login to add a new contact.");
+      return;
+    }
+    else {
+      const url = 'https://localhost:7275/api/Contact';
+      const data = {
         "name": name,
         "surname": surname,
         "email": email,
@@ -58,63 +57,63 @@ const handleSave = ({name,surname,email,password,phone,category,dateOfBirth}) =>
         "phone": phone,
         "category": category,
         "dateOfBirth": dateOfBirth
-    }
-    if(!isFormValid({name,surname,email,password,phone,category,dateOfBirth})) return;
-    axios.post(url, data)
+      }
+      if (!isFormValid({ name, surname, email, password, phone, category, dateOfBirth })) return;
+      axios.post(url, data)
         .then(() => {
-            toast.success("Contact has been added.");
-            getData();
+          toast.success("Contact has been added.");
+          getData();
         }).catch((error) => {
-            toast.error(error);
+          toast.error(error);
         })
+    }
   }
-}
 
-    // This code sends a DELETE request to remove a contact with the given ID,
-    // displays a confirmation dialog before deleting
-    // updates the contact list and displays a toast message after a successful response.
+  // This code sends a DELETE request to remove a contact with the given ID,
+  // displays a confirmation dialog before deleting
+  // updates the contact list and displays a toast message after a successful response.
 
-const handleDelete = (id) => {
-  if (window.confirm("Are you sure you want to delete this contact?") === true) {
-    axios.delete(`https://localhost:7275/api/Contact/${id}`)
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this contact?") === true) {
+      axios.delete(`https://localhost:7275/api/Contact/${id}`)
         .then((result) => {
-            if (result.status === 200) {
-                toast.success("Contact has been removed.");
-                getData();
-            }
+          if (result.status === 200) {
+            toast.success("Contact has been removed.");
+            getData();
+          }
         })
         .catch((error) => {
-            toast.error(error);
+          toast.error(error);
         })
-}
-}
+    }
+  }
 
   const handleLogout = () => {
     // do your logout logic here
     setIsLoggedIn(false);
     toast.success("Logged out.");
-    document.cookie="0000000000";
+    document.cookie = "0000000000";
   }
 
-return (
+  return (
     <div className="App">
       {isLoggedIn ? (
         <div>
-          <Form handleSave={handleSave}/><br/>
+          <Form handleSave={handleSave} /><br />
           <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <LoginForm onLoginStatusChange={handleLoginStatusChange} setIsLoggedIn={setIsLoggedIn} />
-          )}<br/>
-          <Contacts 
-            data={data} 
-            handleDelete={handleDelete} 
-            isLoggedIn={isLoggedIn}
-          />
+      )}<br />
+      <Contacts
+        data={data}
+        handleDelete={handleDelete}
+        isLoggedIn={isLoggedIn}
+      />
     </div>
-    
+
   );
-  
+
 }
 
 export default App;
