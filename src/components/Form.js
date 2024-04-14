@@ -11,7 +11,6 @@ const Form = ({ handleSave }) => {
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const [category, setCategory] = useState('')
     const [phone, setPhone] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
@@ -51,8 +50,6 @@ const Form = ({ handleSave }) => {
                         value={surname} onChange={(e) => setSurname(e.target.value)} /></Col>
                     <Col><input style={{ "minWidth": "200px", "textAlign": "center" }} type="text" className="form-control" placeholder="Enter e-mail"
                         value={email} onChange={(e) => setEmail(e.target.value)} /></Col>
-                    <Col><input style={{ "minWidth": "64px", "textAlign": "center" }} type="text" className="form-control" placeholder="Enter password"
-                        value={password} onChange={(e) => setPassword(e.target.value)} /></Col>
                 </Row>&nbsp;
                 <Row>
                     <Col>
@@ -74,7 +71,7 @@ const Form = ({ handleSave }) => {
                         value={phone} onChange={(e) => setPhone(e.target.value)} /></Col>
                     <Col><input type="date" className="form-control" placeholder="Enter date of birth"
                         value={dateOfBirth} style={{ "minWidth": "64px", "textAlign": "center" }} onChange={(e) => setDateOfBirth(e.target.value)} /></Col>
-                    <Col><button className="btn btn-primary" onClick={() => handleSave({ name, surname, email, password, category, phone, dateOfBirth })}>Submit</button></Col>
+                    <Col><button className="btn btn-primary" onClick={() => handleSave({ name, surname, email, category, phone, dateOfBirth })}>Submit</button></Col>
                 </Row>
             </Container>
         </Fragment>
