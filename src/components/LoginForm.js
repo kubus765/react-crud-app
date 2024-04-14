@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
@@ -97,7 +97,6 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
 
   return (
     <Fragment>
-      <ToastContainer />
       <Container>
         <Row>
           <Col>
@@ -110,7 +109,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
           <Col>
             <input
               style={{ minWidth: "80px", textAlign: "center" }}
-              type="text"
+              type="login"
               className="form-control"
               placeholder="Enter username"
               value={username}
@@ -120,7 +119,7 @@ const LoginForm = ({ onLoginStatusChange }) => { // updated prop name and remove
           <Col>
             <input
               style={{ minWidth: "80px", textAlign: "center" }}
-              input type="password"
+              type="password"
               className="form-control"
               placeholder="Enter password"
               value={password}
