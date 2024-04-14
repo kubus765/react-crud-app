@@ -20,7 +20,6 @@ function App() {
   const [editName, setEditName] = useState('');
   const [editSurname, setEditSurname] = useState('');
   const [editEmail, setEditEmail] = useState('');
-  const [editPassword, setEditPassword] = useState('');
   const [editCategory, setEditCategory] = useState('');
   const [editPhone, setEditPhone] = useState('');
   const [editDateOfBirth, setEditDateOfBirth] = useState('');
@@ -53,7 +52,7 @@ function App() {
   }
 
   // Function to handle saving a new contact
-  const handleSave = ({ name, surname, email, password, phone, category, dateOfBirth }) => {
+  const handleSave = ({ name, surname, email, phone, category, dateOfBirth }) => {
     if (!isLoggedIn) {
       toast.error("Please login to add a new contact.");
       return;
@@ -63,12 +62,11 @@ function App() {
         "name": name,
         "surname": surname,
         "email": email,
-        "password": password,
         "phone": phone,
         "category": category,
         "dateOfBirth": dateOfBirth
       }
-      if (!isFormValid({ name, surname, email, password, phone, category, dateOfBirth })) return;
+      if (!isFormValid({ name, surname, email, phone, category, dateOfBirth })) return;
       axios.post(url, data)
         .then(() => {
           toast.success("Contact has been added.");
@@ -111,7 +109,6 @@ function App() {
         setEditName(result.data.name);
         setEditSurname(result.data.surname);
         setEditEmail(result.data.email);
-        setEditPassword(result.data.password);
         setEditCategory(result.data.category);
         setEditPhone(result.data.phone);
         setEditDateOfBirth(result.data.dateOfBirth.split('T')[0]);
@@ -129,12 +126,11 @@ function App() {
       "name": editName,
       "surname": editSurname,
       "email": editEmail,
-      "password": editPassword,
       "phone": editPhone,
       "category": editCategory,
       "dateOfBirth": editDateOfBirth
     }
-    if (!isFormValid({ name: editName, surname: editSurname, email: editEmail, password: editPassword, phone: editPhone, category: editCategory, dateOfBirth: editDateOfBirth })) return;
+    if (!isFormValid({ name: editName, surname: editSurname, email: editEmail, phone: editPhone, category: editCategory, dateOfBirth: editDateOfBirth })) return;
     axios.put(url, data)
       .then(() => {
         getData();
@@ -163,7 +159,6 @@ function App() {
             <th>Name</th>
             <th>Surname</th>
             <th>E-mail</th>
-            <th>Password</th>
             <th>Category</th>
             <th>Phone</th>
             <th>Date of birth</th>
@@ -177,7 +172,6 @@ function App() {
               <td>{item.name}</td>
               <td>{item.surname}</td>
               <td>{item.email}</td>
-              <td>{item.password}</td>
               <td>{item.category}</td>
               <td>{item.phone.slice(0, 3)}-{item.phone.slice(3, 6)}-{item.phone.slice(6)}</td>
               <td>{item.dateOfBirth.split('T')[0]}</td>
@@ -215,11 +209,6 @@ function App() {
           <Row>
             <Col><input type="text" className="form-control" placeholder="Enter e-mail"
               value={editEmail} onChange={(e) => setEditEmail(e.target.value)}
-            /></Col>
-          </Row>&nbsp;
-          <Row>
-            <Col><input type="text" className="form-control" placeholder="Enter password"
-              value={editPassword} onChange={(e) => setEditPassword(e.target.value)}
             /></Col>
           </Row>&nbsp;
           <Row>
